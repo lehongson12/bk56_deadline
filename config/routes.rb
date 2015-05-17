@@ -1,4 +1,29 @@
 Rails.application.routes.draw do
+  
+  
+
+  get 'about/about'
+
+  get 'home/index'
+  resources :questions do
+      resources :answers
+  end
+  get 'users/index'
+  get 'users/show'
+  devise_for :admins
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users do
+    member do
+      get :following, :followers
+    end
+    collection do
+      get :tigers
+    end
+  end
+
+  resources :answers
+  resources :relationships, :only => [:create, :destroy]
+  root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -22,6 +22,8 @@ Rails.application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
 
+  #devise
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -53,6 +55,9 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  #devise
+  # ActionMailer Config
+  # Setup for production - deliveries, no errors raised
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"

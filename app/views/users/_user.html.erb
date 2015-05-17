@@ -1,0 +1,23 @@
+<td>
+  <%= gravatar_for user, size: 50 %>
+    <div class="text-muted infor">
+        <%= link_to user.name, user, :class => "text-info", :style => "text-decoration: none" %>
+        <h6>ruby,php,javaaaaaaaaaaaaaaaaaaaaaaaa</h6>
+        <h6>likes: 100</h6>
+    </div>
+</td>
+
+<% if current_user.try(:supermod?) || admin_signed_in? %>
+
+<td>
+  <%= form_for(user) do |f| %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]})%>
+    <%= f.submit 'Change Role', :class => 'btn btn-xs btn-primary', style: 'width: 50%' %>
+  <% end %>
+</td>
+<td>
+  <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-xs btn-danger') unless user == current_user %>
+</td>
+
+<% end %>
+

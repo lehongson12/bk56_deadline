@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-9 question-pages">
+    <!--Begin link local-->
+    <%= render 'local' %>
+    <!--End link local-->   
+    <article>
+      <!--Begin Question -->
+      <section class="post">
+      <!-- Begin list-post-->         
+      <div class="list-post">
+        <div class="page-header">
+          <h4><a href=""><span class="glyphicon glyphicon-folder-open"></span>  Most visit </a></h4>
+        </div>
+        <!-- Begin post-->
+        <% @questions.each do |question| %> 
+        <div class="page-header">
+        
+          <div class="row">
+          
+            <div class="col-md-2" style="border-color: lavender;">
+              <a href="#"> Category |</a> 
+            </div>
+            <div class="col-md-10">
+              <div>
+                <%= link_to question.title, question  %>
+                <% if current_user.try(:supermod?) || admin_signed_in? %>
+                <p class="meta"><span class=""><%= link_to("Delete", question_path(question), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-xs btn-danger') %>
+                </span></p>
+                <% end %>
+              </div>
+                    <div class='meta'>
+                        <%= link_to question.user.try(:name), question.user  %> | 
+                        <strong>on: </strong> 23-12-2015 |
+                        <strong> votes: </strong>1 |
+                        <strong> views: </strong>13
+                    </div>
+            </div>  
+          </div>  
+        </div>
+        <% end %>
+        <div class="page-header">
+          <div id="pagination">
+            <ul class="pagination pagination-sm">
+              <%= will_paginate @questions %>
+            </ul>
+          </div>
+        </div>
+      </div>                
+      </section>
+      
+      <!--End Reply Question-->
+      
+    </article>
+    <!-- End main-post-->
+    <div class="clear"></div>
+    <!--Begin link local-->
+              
+  </div>
+  <%= render 'layouts/panel' %>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="user-page-header ">
+        <h3><span class="glyphicon glyphicon-user"></span> Users</h3>
+    </div>
+    <div class="clear"></div>
+    <!-- Begin show users -->
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <%= render user %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @users %>
+    </div>
+  </div>
+  <!-- end show users -->
+  <%= render 'layouts/panel' %>
+</div>

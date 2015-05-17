@@ -1,0 +1,237 @@
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %> | 
+<%= link_to 'Destroy', @question, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="row">
+<div class="col-md-9 single-pages">
+	<!--Begin link local-->
+	<%= render 'local' %>
+	<!--End link local-->		
+	<article>
+		<!--Begin Question -->
+		<section style = "border-bottom: 1px solid lavender">
+			<div class="page-header title">
+				<h4 class="text-muted"><%= @question.title %></h4>
+				<h6 class="col-md-2 col-md-offset-10">views: <span>100</span></h6>
+				<div id="pagination">
+					<ul class="pagination pagination-sm">
+						<li><a href="#">First</a></li>
+						<li><a href="#">Next</a></li>
+					  	<li><a href="#" class="active">1</a></li>
+					  	<li><a href="#">2</a></li>
+					  	<li><a href="#">3</a></li>
+					  	<li><a href="#">4</a></li>
+					  	<li><a href="#">5</a></li>
+					  	<li><a href="#">Previous</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="author">
+				<div class="row" id="form-user" style="width: 100%;">
+					<div class="col-md-1">
+						<%= image_tag "1.png", height: "50px;",  width: "50px;" %>
+					</div>
+					<div class="col-md-2 col-md-offset-0 text-muted">
+						<%= link_to @question.user.try(:name), @question.user, :class => "text-info", :style => "text-decoration: none"  %>
+						<h6>ruby,php,java</h6>
+						<h6>likes: 100</h6>
+					</div>
+				</div>
+			</div>
+			<div class="main-post">
+				<p> 
+					<%=raw @question.content %>      
+				 </p>
+				<div class='metadata'> 
+		                <strong>on: </strong> <%= @question.created_at %>
+		        </div>
+			</div>
+			<div class="clear"></div>
+			<div class="meta" style="float: left;">
+				<ul>
+					<li>
+						<button type="button" class="btn btn-default btn-sm">
+							<a href="#">
+					          	<span class="glyphicon glyphicon-star"></span>
+					        </a>like: 100
+						</button>
+					</li>
+					<li>
+						<div class="icon-share" style="margin-letf: 100px">
+							<%= image_tag "twitter.png", :alt => "twitter" %>
+							<%= image_tag "facequestion.png", :alt => "facequestion" %> 
+							<%= image_tag "myspace.png", :alt => "myspace" %> 
+							<%= image_tag "flick.png", :alt => "flick" %>  
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="change">
+				<button type="submit" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-pencil"></span>Edit</button>
+				<div id="demo" class="collapse">
+			        <form role="form">
+					    <div class="form-group">
+					     	<textarea class="form-control" rows="5" id="comment"></textarea>
+					    </div>
+					    <div class="form-group">        
+						        <button type="submit" class="btn btn-info btn-sm" >Change</button>
+						</div>
+					</form>
+			    </div>
+			</div>
+			<div class="clear"></div>
+			<div class="tag" style="margin-bottom: 10px;">
+				<span class="glyphicon glyphicon-tag"></span> Tags:  
+					<a href="" class="bg-info">scc</a>
+					<a href="" class="bg-info">scc</a>
+					<a href="" class="bg-info">scc</a>
+			</div>
+								
+		</section>
+		<div class="clear"></div>
+		<!--End Question -->
+		<!-- Reply Question-->
+		<div class="reply">
+
+		<div class="answers">
+			<h4 id="answers-count">This question has <%= pluralize(@question.answers.count, 'answer') %></h4>
+			<div>
+				<%= render 'answers/answer_form' %>
+			</div>
+		</div>
+		<div id="answers-list">
+			<%= render partial: @question.reload.answers %>
+		</div>
+			<div class="row" id="form-reply" style="width: 100%;">
+				<div class="user-form col-md-2">
+					<%= image_tag "1.png", :alt => "avatar", :height => "100px;", :width => "100px;"%> 
+					<a href="">lehongson</a>
+					<h6 class="text-muted">likes: 100</h6>
+				</div>
+				<div class="main-cmt col-md-10">
+					<div class="main-rep">
+						<div class="main-data">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor orci et orci semper sit amet commodo lorem volutpat. Aliquam vitae nisi nulla. Etiam eget rhoncus lorem. Donec rutrum consectetur purus in elementum. Sed consectetur gravida magna, quis mollis quam pulvinar.</p>
+							<p class="bg-success">
+							orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor orci et orci semper sit amet commodo lorem volutpat. Aliquam vitae nisi nulla. Etiam eget rhoncus lorem. Donec rutrum consectetur purus in elementum. Sed consectetur gravida magna, quis mollis quam pulvinar.</p>
+							<div class='metadata'> 
+					                <strong>on: </strong> 23-12-2015
+					        </div>
+					        <div class="clear"></div>
+					        <button type="button" class="btn btn-default btn-sm">
+								<a href="#">
+								    <span class="glyphicon glyphicon-star"></span>
+								</a>like: 100
+							</button>
+							<div class="change">
+								<button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#change-cmt">
+									<a href="#">
+						          	<span class="glyphicon glyphicon-pencil"></span>
+						        	</a>Change
+								</button>
+							    <div id="change-cmt" class=" collapse">
+							        <form role="form" action="#">
+									    <div class="form-group">
+									     	<textarea class="form-control" rows="5" id="comment"></textarea>
+									    </div>
+									    <div class="form-group">        
+										    <div class="">
+										        <button type="submit" class="btn btn-info btn-sm">Change</button>
+										    </div>
+										</div>
+									</form>
+							    </div>
+							</div>
+						</div>
+					</div>
+					<div class="main-rep-cmt">
+						<div class="user-form col-md-1">
+							<img src="images/1.png" height="40px;" width="40px;">
+						</div>
+						<div class=" main-rep-cmt col-md-11 col-md-offset-0">
+							<p class="bg-success">
+								orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor 
+							.</p>
+							<div class='metadata'>
+								<a href="">leson</a> | 
+					            <strong>on: </strong> 23-12-2015
+					        </div>
+					        <div class="clear"></div>
+						</div>									
+					</div> <!--End main rep cmt-->
+					<div class="main-rep-cmt">
+						<div class=" user-form col-md-1">
+							<img src="images/1.png" height="40px;" width="40px;">
+						</div>
+						<div class=" main-rep-cmt col-md-11 col-md-offset-0">
+							<p class="bg-success">
+								orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor 
+							.</p>
+							<div class='metadata'>
+								<a href="">leson</a> | 
+					            <strong>on: </strong> 23-12-2015
+					        </div>
+					        <div class="clear"></div>
+					        <div class="comment">
+								<button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#cmt">
+									<a href="#">
+						          	<span class="glyphicon glyphicon-pencil"></span>
+						        	</a>comment
+								</button>
+							    <div id="cmt" class="collapse">
+							        <form role="form">
+									    <div class="form-group">
+									     	<textarea class="form-control" rows="5" id="comment"></textarea>
+									    </div>
+									    <div class="form-group">        
+										    <div class="">
+										        <button type="submit" class="btn btn-default btn-sm">comment</button>
+										    </div>
+										</div>
+									</form>
+							    </div>
+							</div>
+						</div>									
+					</div> <!--End main rep cmt-->
+					
+				</div> <!--end main cmt-->
+			</div>					
+		</div>
+		<!--End Reply Question-->
+		<div id="pagination1">
+			<ul class="pagination pagination-sm">
+				<li><a href="#">First</a></li>
+				<li><a href="#">Next</a></li>
+				<li><a href="#" class="active">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">Previous</a></li>
+			</ul>
+		</div>
+		<div class="post">
+			<button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#post-cmt">
+				<a href="#">
+				     <span class="glyphicon glyphicon-pencil"></span>
+				</a>Post Answer
+			</button>
+			<div id="post-cmt" class=" collapse">
+				<form role="form" action="#">
+					<div class="form-group">
+					<textarea class="form-control" rows="5" id="comment"></textarea>
+					</div>
+					<div class="form-group">        
+						<div class="">
+							<button type="submit" class="btn btn-info btn-sm">Post</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</article>
+		<div class="clear"></div>
+</div>
+	<!-- End main-post-->
+<%= render 'layouts/panel' %>
+</div>

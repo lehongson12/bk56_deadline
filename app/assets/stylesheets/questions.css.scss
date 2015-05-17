@@ -1,0 +1,198 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+/* header */
+@media only screen and (min-width:961px){
+.container{width:1100px; padding: 0; background: none repeat scroll 0 0;}
+}
+.container{
+  margin-bottom: 50px;
+}
+body{margin:0px; padding:0px; width:100%; background: #FFF repeat scroll 0 0;}
+ul {list-style: none outside none; margin:0; padding:0;}
+ul li {display: inline-block;}
+h1, h2, h3, h4, h5, h6{}
+a:hover {text-decoration:none;}
+
+.navbar-inverse{
+  background: #1a202b;
+}
+.navbar-brand span{
+  color: #80FFFF;
+}
+
+.row li {
+  list-style-type: none;
+}
+.jumbotron {
+  width: auto;
+  margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    background-color: #025587;
+    border-bottom: 1px solid lavender;
+    box-shadow: 0.5px 0.5px 5px #8fd0b9;
+-moz-box-shadow: 2px 2px 2px #8fd0b9;
+-webkit-box-shadow: 2px 2px 2px #8fd0b9;
+}
+
+.jumbotron-chil {
+  float: left;
+  /*margin: -20px 5px 5px 25px; */
+  margin-left: 15%;
+}
+.jumbotron h2 {
+  color: #FFF;
+  font: normal 300% 'century gothic', arial, sans-serif;
+
+}
+.jumbotron p {
+  color: #FFF;
+  font: normal 100% 'century gothic', arial, sans-serif;
+
+}
+.jumbotron span{
+  color: #80FFFF;
+}
+
+/* footer */
+#footer {
+  background: url(“images/footer-col-bg.png”) repeat-x scroll 0 0 #1a202b;
+  border-radius: 5px;
+   h3 {
+    color:  #A9A9A9;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  li {
+    color:  #A9A9A9;
+    margin: 5px 0 0;
+    width: 100%;
+    a{
+    color: #1a202b;
+    }
+  }
+}
+.arrow {
+  background: url(“images/arrow.png”) no-repeat scroll left center rgba(0, 0, 0, 0);
+  color: #a7a7a7;
+  padding-left: 10px;
+  width: 100%;
+  }
+.phone {
+  background: url(“images/phone.png”) no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding-left: 20px;
+}
+.mail {
+  background: url(“images/mail.png”) no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding-left: 20px;
+}
+.contact {
+  background: url(“images/contact.png”) no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding-left: 20px;
+}
+.skype {
+  background: url(“images/skype.png”) no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding-left: 20px;
+}
+.link {
+  background: url(“images/link.png”) no-repeat scroll left center rgba(0, 0, 0, 0);
+  padding-left: 20px;
+  li {
+    display: inline;
+    padding: 0 2px;
+  }
+}
+#copyright {
+  background: url(“../images/footer-bg.png”) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  display: inline-block;
+  height: 55px;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+   span {
+  color: #969696;
+  }
+}
+
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* Users index */
+
+.users {
+  list-style-type: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/** new question form **/
+.new-question-form {
+  padding-top: 10px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+.new-question-form form {
+  padding-bottom: 10px;
+}
+.new-question-form .right {
+  float: right !important;
+}
+ /**
+.pagination {
+  .previous_page { background:#7777ff; color:white }
+  .previous_page.disabled { background: white; color: #777 }
+  .current { background: yellow }
+  .next_page { background: #7777ff; color: white }
+  .next_page.disabled { background: white; color: #777 }
+}
+
+**/

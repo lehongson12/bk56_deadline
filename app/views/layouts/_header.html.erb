@@ -1,0 +1,60 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<header>
+  <nav class="navbar-fixed-top navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <li style="list-style: none"> <%=  link_to root_path, class: 'navbar-brand', style: "color: white;" do %>
+            code<span>Dev</span>
+            <% end %> 
+          </li>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar" >
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">HTML</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if admin_signed_in? %>
+            <%= render 'layouts/navigation_admin' %>
+          <% else %>
+          <%= render 'layouts/navigation_link' %>
+          <% end -%>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--End NavBar-->
+</header>
+
+<!--Begin Logo-->
+  <div class="jumbotron">
+    <div class="jumbotron-chil">
+      <%=  link_to root_path, class: 'logo', style: "color: white;" do %>
+        <h2>code<span>Dev</span></h2>
+      <% end %>     
+      <p>Just do it</p>
+    </div>
+  </div>  
+  <!--End Logo-->
+  <div class="navbar-cente" id="navbarnav">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="<%= 'active' if params[:controller] == 'home' %>"> <a href="/home/index">Home</a> </li>
+      <li class="<%= 'active' if params[:controller] == 'questions' %>"> <a href="/questions">Question</a> </li>
+      <li class="<%= 'active' if params[:controller] == 'users' %>"> <a href="/users">Users</a> </li>
+      <li class="<%= 'active' if params[:controller] == 'about' %>"> <a href="/about/about">About</a> </li>        
+    </ul>
+  </div>
+<div class="clear"></div>

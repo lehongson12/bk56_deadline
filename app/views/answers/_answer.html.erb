@@ -1,0 +1,9 @@
+<%= div_for answer do %>
+<strong><p class="answer-user-email"><%= sanitize(answer.user.email) %></p></strong>
+<p class="answer-content"><%= sanitize(answer.content) %></p>
+<span class="date">
+<small><%= time_ago_in_words(answer.created_at) %> ago</small>
+</span>
+</br>
+<a>...........................................................................................................................................................</a>
+<% end %>
